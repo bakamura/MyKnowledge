@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 // This script will, on key press, detect near interfaced objects,
@@ -15,8 +14,9 @@ public class InterfaceCaller : MonoBehaviour {
 
     private void CallIInterface() {
         Collider[] hits = Physics.OverlapSphere(transform.position, _detectRadius);
+        IInterface iInterface;
         for (int i = 0; i < hits.Length; i++) {
-            IInterface iInterface = hits[i].GetComponent<IInterface>();
+            iInterface = hits[i].GetComponent<IInterface>();
             if (iInterface != null) {
                 iInterface.DoStuff();
                 iInterface.Material = iInterface.Material == _materialSwap[0] ? _materialSwap[1] : _materialSwap[0];
