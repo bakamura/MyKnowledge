@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Abstract class because it shouldn't be used by itself
+// Defines properties every state should implement
 public abstract class StateBase {
 
     public StateBase(GameObject affectedObj) {

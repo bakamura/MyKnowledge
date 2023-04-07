@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Object A spins when called
+// Object B spins when called
 // This version uses an inheritance
 // Inheriting objects can have any other parameters and values
 // They may inherit from only one class

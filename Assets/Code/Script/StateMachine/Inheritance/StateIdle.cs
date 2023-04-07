@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// In this state, the object will stay still
+// After _maxDuration seconds, it changes do StateWalk
 public class StateIdle : StateBase {
 
     public StateIdle(GameObject affectedObj) : base(affectedObj) {}
@@ -15,10 +17,12 @@ public class StateIdle : StateBase {
         _duration += Time.deltaTime;
     }
 
+    // Must be implemented because it's inheriting from base class
     protected override void OnExitState() {}
 
+    // Contains every condition and wich state to go
     public override StateBase ConditionNextState() {
-        if (_duration > _maxDuration) {
+        if (_duration >= _maxDuration) {
             OnExitState();
             return new StateWalk(_gameObject);
         }

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Object A jumps when called
+// This version uses the delegate list
 public class ObserverDelegatedA : MonoBehaviour {
 
     [SerializeField] private ObserverCaller objToObserve;

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// In this state, the object will run in a random horizontal direction
+// After going to an edge, it changes do StateIdle
 public class StateRun : StateBase {
 
     public StateRun(GameObject affectedObj) : base(affectedObj) {}
@@ -15,8 +17,10 @@ public class StateRun : StateBase {
         _gameObject.transform.position += _direction * Time.deltaTime * 2;
     }
 
+    // Must be implemented because it's inheriting from base class
     protected override void OnExitState() {}
 
+    // Contains every condition and wich state to go
     public override StateBase ConditionNextState() {
         if (!Physics.Raycast(_gameObject.transform.position + _direction * 0.55f, Vector3.down, 1.1f)) return new StateIdle(_gameObject);
         return null;

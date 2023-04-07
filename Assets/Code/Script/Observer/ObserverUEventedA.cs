@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Object A jumps when called
+// This version uses the UnityEvent
 public class ObserverUEventedA : MonoBehaviour {
 
     [SerializeField] private ObserverCaller objToObserve;

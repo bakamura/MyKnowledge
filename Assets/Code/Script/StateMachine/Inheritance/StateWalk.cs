@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// In this state, the object will walk in a random horizontal direction
+// After going to edges 3 times, it changes state to StateRun
 public class StateWalk : StateBase {
 
     public StateWalk(GameObject affectedObj) : base(affectedObj) {}
@@ -21,8 +23,10 @@ public class StateWalk : StateBase {
         }
     }
 
+    // Must be implemented because it's inheriting from base class
     protected override void OnExitState() {}
 
+    // Contains every condition and wich state to go
     public override StateBase ConditionNextState() {
         if (_edgeCount > 2) {
             OnExitState();

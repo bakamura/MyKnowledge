@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Object B spins when called
+// This version uses the UnityEvent
 public class ObserverUEventedB : MonoBehaviour {
 
     [SerializeField] private ObserverCaller objToObserve;

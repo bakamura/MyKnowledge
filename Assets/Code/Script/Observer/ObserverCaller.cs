@@ -2,13 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// This Caller will, on key press, call both delegated and UnityEvents
+// It cicles through the list of delegates, calling each
+// It uses UnityEvent.Invoke() to call subscribed methods
 public class ObserverCaller : MonoBehaviour {
 
     [SerializeField] private KeyCode _actionKey;
     private MeshRenderer _meshRenderer;
     [SerializeField] private Material[] _materials;
+
     public delegate void OnChangeMaterial();
     public List<OnChangeMaterial> onChangeMaterialList = new List<OnChangeMaterial>();
+    
     public UnityEvent onChangeMaterialUnityEvent;
 
     private void Start() {

@@ -6,6 +6,7 @@ using UnityEngine;
 // For this project, we will be pooling bullets, shot by the player
 public class ObjectPooling : MonoBehaviour {
 
+    // Can also be done with an array, but lacks flexibility
     [SerializeField] private GameObject _objectToPool;
     private List<GameObject> _objectPool = new List<GameObject>();
     [SerializeField] private KeyCode _shootKey;
@@ -48,6 +49,7 @@ public class ObjectPooling : MonoBehaviour {
         StartCoroutine(DeactivateObject(obj));
     }
 
+    // Deactivate instead of destroy
     private IEnumerator DeactivateObject(GameObject obj) {
         yield return _deactivateWait;
 
