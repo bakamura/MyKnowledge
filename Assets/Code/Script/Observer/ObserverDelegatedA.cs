@@ -13,7 +13,7 @@ public class ObserverDelegatedA : MonoBehaviour {
     }
 
     private void Start() {
-        objToObserve.onChangeMaterialList.Add(DoStuff);
+        objToObserve.OnChangeMaterialList.Add(DoStuff);
     }
 
     public void DoStuff() {

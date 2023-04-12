@@ -13,7 +13,7 @@ public class ObserverUEventedA : MonoBehaviour {
     }
 
     private void Start() {
-        objToObserve.onChangeMaterialUnityEvent.AddListener(DoStuff);
+        objToObserve.OnChangeMaterialUnityEvent.AddListener(DoStuff);
     }
 
     public void DoStuff() {

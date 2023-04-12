@@ -12,9 +12,11 @@ public class ObserverCaller : MonoBehaviour {
     [SerializeField] private Material[] _materials;
 
     public delegate void OnChangeMaterial();
-    public List<OnChangeMaterial> onChangeMaterialList = new List<OnChangeMaterial>();
-    
-    public UnityEvent onChangeMaterialUnityEvent;
+    private List<OnChangeMaterial> onChangeMaterialList = new List<OnChangeMaterial>();
+    public List<OnChangeMaterial> OnChangeMaterialList { get { return onChangeMaterialList; } }
+
+    private UnityEvent onChangeMaterialUnityEvent;
+    public UnityEvent OnChangeMaterialUnityEvent { get { return onChangeMaterialUnityEvent; } }
 
     private void Start() {
         _meshRenderer = GetComponent<MeshRenderer>();
@@ -23,8 +25,8 @@ public class ObserverCaller : MonoBehaviour {
     private void Update() {
         if (Input.GetKeyDown(_actionKey)) {
             _meshRenderer.material = _meshRenderer.material == _materials[0] ? _materials[1] : _materials[0];
-            foreach(OnChangeMaterial invoked in onChangeMaterialList) invoked.Invoke();
-            onChangeMaterialUnityEvent.Invoke();
+            foreach (OnChangeMaterial invoked in OnChangeMaterialList) invoked.Invoke();
+            OnChangeMaterialUnityEvent.Invoke();
         }
     }
 }
